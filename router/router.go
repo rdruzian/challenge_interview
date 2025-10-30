@@ -36,10 +36,8 @@ func ConfigRoutes(router *gin.Engine, service inbound.DeviceInterface) *gin.Engi
 		}
 	}
 
-	// Rota para documentação Swagger
-	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
-	// Healthcheck
-	router.GET("/health", health)
+    // Rota para documentação Swagger
+    router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	return router
 }
@@ -61,7 +59,7 @@ func createDevice(c *gin.Context) {
 		return
 	}
 
-	slog.Debug("Device:", device)
+	slog.Debug("request_device", "device", device)
 
 	if err := deviceService.CreateDevice(device); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
@@ -165,13 +163,4 @@ func deleteDevice(c *gin.Context) {
 		return
 	}
 	c.Status(http.StatusNoContent)
-}
-
-// @Summary      Healthcheck
-// @Tags         health
-// @Produce      json
-// @Success      200  {object}  map[string]string
-// @Router       /health [get]
-func health(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"status": "ok"})
 }

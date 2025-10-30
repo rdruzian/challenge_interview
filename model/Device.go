@@ -2,16 +2,10 @@ package model
 
 import "time"
 
-const (
-	AVAILABLE = iota
-	INUSE
-	INACTIVE
-)
-
 type Device struct {
-	ID           int64     `json:"id" db:"id"`
+	ID           int64     `json:"-" db:"id"`
 	Name         string    `json:"name" db:"name"`
 	Brand        string    `json:"brand" db:"brand"`
-	State        int       `json:"state" db:"state"`
-	CreationDate time.Time `json:"creation_date" db:"creation_date"`
+	State        string    `json:"state" db:"state"`
+	CreationDate time.Time `json:"-" db:"creation_date"`
 }

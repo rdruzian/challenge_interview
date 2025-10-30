@@ -1,8 +1,9 @@
 package main
 
 import (
-	"TestInterview/server"
 	"fmt"
+
+	"github.com/rdruzian/challenge_interview/server"
 )
 
 // @title           Challenge code

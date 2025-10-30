@@ -1,7 +1,7 @@
 package database
 
 import (
-	"TestInterview/database/migrations"
+	"github.com/rdruzian/challenge_interview/database/migrations"
 	"log"
 	"time"
 

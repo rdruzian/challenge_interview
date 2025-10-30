@@ -1,7 +1,7 @@
 package server
 
 import (
-	"TestInterview/router"
+	"github.com/rdruzian/challenge_interview/router"
 	"log"
 
 	"github.com/gin-gonic/gin"

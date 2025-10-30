@@ -1,6 +1,6 @@
 package inbound
 
-import "TestInterview/model"
+import "github.com/rdruzian/challenge_interview/model"
 
 type DeviceInterface interface {
 	CreateDevice(device model.Device) error

@@ -1,7 +1,7 @@
 package router
 
 import (
-	"TestInterview/middleware"
+	"github.com/rdruzian/challenge_interview/middleware"
 	"log"
 
 	"github.com/gin-gonic/gin"

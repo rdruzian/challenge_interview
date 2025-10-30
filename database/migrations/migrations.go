@@ -1,7 +1,7 @@
 package migrations
 
 import (
-	"TestInterview/model"
+	"github.com/rdruzian/challenge_interview/model"
 
 	"gorm.io/gorm"
 )

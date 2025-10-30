@@ -1,10 +1,12 @@
 package database
 
 import (
-	"github.com/rdruzian/challenge_interview/database/migrations"
+	"fmt"
 	"log"
+	"os"
 	"time"
 
+	"github.com/rdruzian/challenge_interview/database/migrations"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -12,7 +14,13 @@ import (
 var db *gorm.DB
 
 func StartDB() {
-	str := "host=localhost port=25432 user=admin dbname=pizzaOrder sslmode=disable password=123456"
+	host := getenvDefault("DB_HOST", "localhost")
+	port := getenvDefault("DB_PORT", "25432")
+	user := getenvDefault("DB_USER", "admin")
+	dbname := getenvDefault("DB_NAME", "challenge_db")
+	password := getenvDefault("DB_PASSWORD", "123456")
+
+	str := fmt.Sprintf("host=%s port=%s user=%s dbname=%s sslmode=disable password=%s", host, port, user, dbname, password)
 
 	database, err := gorm.Open(postgres.Open(str), &gorm.Config{})
 	if err != nil {
@@ -44,4 +52,12 @@ func CloseConn() error {
 	}
 
 	return nil
+}
+
+func getenvDefault(key, def string) string {
+	val := os.Getenv(key)
+	if val == "" {
+		return def
+	}
+	return val
 }

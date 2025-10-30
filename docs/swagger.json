@@ -134,6 +134,7 @@
                 "summary": "Get device by State",
                 "parameters": [
                     {
+                        "type": "string",
                         "description": "State",
                         "name": "state",
                         "in": "path",
@@ -176,6 +177,7 @@
                         "type": "integer",
                         "description": "Device ID",
                         "name": "id",
+                        "in": "path",
                         "required": true
                     }
                 ],
@@ -220,28 +222,6 @@
                     },
                     "400": {
                         "description": "Bad Request",
-                        "schema": {
-                            "type": "object",
-                            "additionalProperties": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/health": {
-            "get": {
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "health"
-                ],
-                "summary": "Healthcheck",
-                "responses": {
-                    "200": {
-                        "description": "OK",
                         "schema": {
                             "type": "object",
                             "additionalProperties": {

@@ -69,7 +69,7 @@ paths:
       - application/json
       responses:
         "200":
-
+          description: OK
           schema:
             $ref: '#/definitions/model.Device'
         "400":
@@ -161,18 +161,4 @@ paths:
       summary: Get device by State
       tags:
       - device
-  /health:
-    get:
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            additionalProperties:
-              type: string
-            type: object
-      summary: Healthcheck
-      tags:
-      - health
 swagger: "2.0"

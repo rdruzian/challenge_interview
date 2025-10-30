@@ -8,6 +8,6 @@ type DeviceInterface interface {
 	GetDevice(id int) (model.Device, error)
 	GetAllDevice() ([]model.Device, error)
 	GetDeviceByBrand(brand string) ([]model.Device, error)
-	GetDeviceByState(state int) ([]model.Device, error)
+	GetDeviceByState(state string) ([]model.Device, error)
 	DeleteDevice(id int) error
 }
